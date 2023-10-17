@@ -105,12 +105,22 @@
     const firstName = document.querySelector("#first-name");
     const lastName = document.querySelector("#last-name");
     const message = document.querySelector("#message");
-  
+    const div = document.querySelector('#comment-list');
+    const item = `<div class="flex space-x-4 text-sm text-gray-500">
+                <div class="flex-1 py-10 border-t border-gray-200">
+                  <h3 class="font-medium text-gray-900">${firstName.value} ${lastName.value}</h3>
+                  <div class="prose prose-sm mt-4 max-w-none text-gray-500">
+                    <p>${message.value}</p>
+                  </div>
+                </div>
+              </div>`;
+
     if (firstName.value == "" || lastName.value == "" || message.value == ""){
       document.getElementById('error-message').style.display = "block";
   
       }else{
-        
+
+        div.insertAdjacentHTML("beforeend", item);
         document.getElementById('error-message').style.display = "none";
   }
   
